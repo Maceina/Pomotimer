@@ -9,7 +9,7 @@ Warehouse management app.
 5. React Context Api: https://reactjs.org/docs/context.html
 6. Css library normalize: https://github.com/csstools/normalize.css
 7. Svg icons: https://package.elm-lang.org/packages/1602/elm-feather/2.0.1/FeatherIcons
-8. Tailvind css: https://tailwindcss.com/
+8. Tailwind css: https://tailwindcss.com/
 
 # Steps how to use this project:
 1. Clone or download this repository.
