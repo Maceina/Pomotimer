@@ -13,6 +13,8 @@ export const PreviewProduct = (route) => {
     weight: "",
     color: "",
     active: "",
+    quantity: "",
+    price: "",
   });
   const currentProductId = route.match.params.id;
 
@@ -81,6 +83,22 @@ export const PreviewProduct = (route) => {
               htmlFor="active"
             >
               ACTIVE: {selectedProduct.active}
+            </label>
+          </div>
+          <div className="w-full  mb-5">
+            <label
+              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              htmlFor="quantity"
+            >
+              QUANTITY: {selectedProduct.quantity}
+            </label>
+          </div>
+          <div className="w-full  mb-5">
+            <label
+              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              htmlFor="price"
+            >
+              PRICE: {selectedProduct.price}
             </label>
           </div>
           <div className="flex-grow text-center px-4 py-2 m-2">

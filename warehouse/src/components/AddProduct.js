@@ -10,6 +10,8 @@ export const AddProduct = () => {
     const [weight, setWeight] = useState('');
     const [color, setColor] = useState('');
     const [active, setActive] = useState('');
+    const [quantity, setQuantity] = useState('');
+    const [price, setPrice] = useState('');
     const { addProduct, products } = useContext(GlobalContext);
     let history = useHistory();
 
@@ -22,7 +24,9 @@ export const AddProduct = () => {
             type,
             weight,
             color,
-            active
+            active,
+            quantity,
+            price
         }
         addProduct(newProduct);
         history.push("/");
@@ -67,6 +71,18 @@ export const AddProduct = () => {
                             ACTIVE
                         </label>
                         <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:text-gray-600" value={active} onChange={(e) => setActive(e.target.value)} type="text" placeholder="Is product active?" />
+                    </div>
+                    <div className="w-full  mb-5">
+                        <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="quantity">
+                            QUANTITY
+                        </label>
+                        <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:text-gray-600" value={quantity} onChange={(e) => setQuantity(e.target.value)} type="number" placeholder="Enter quantity" />
+                    </div>
+                    <div className="w-full  mb-5">
+                        <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="active">
+                            PRICE
+                        </label>
+                        <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:text-gray-600" value={price} onChange={(e) => setPrice(e.target.value)} type="number" placeholder="Enter price" />
                     </div>
                     <div className="flex items-center justify-between">
                         <button className="mt-5 bg-green-400 w-full hover:bg-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">

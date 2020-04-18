@@ -5,7 +5,7 @@ import { useHistory, Link } from "react-router-dom";
 export const EditProduct = (route) => {
     let history = useHistory();
     const { products, editProduct } = useContext(GlobalContext);
-    const [selectedProduct, setSeletedProduct] = useState({ id: null, name: '', ean: '', type: '', weight: '', color: '', active: '' });
+    const [selectedProduct, setSeletedProduct] = useState({ id: null, name: '', ean: '', type: '', weight: '', color: '', active: '', quantity: '', price: '' });
     const currentProductId = route.match.params.id;
 
     useEffect(() => {
@@ -66,6 +66,18 @@ export const EditProduct = (route) => {
                             ACTIVE
                         </label>
                         <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:text-gray-600 focus:shadow-outline" value={selectedProduct.active} onChange={(e) => handleOnChange('active', e.target.value)} type="text" placeholder="Is product active?" />
+                    </div>
+                    <div className="w-full  mb-5">
+                        <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="quantity">
+                            QUANTITY
+                        </label>
+                        <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:text-gray-600 focus:shadow-outline" value={selectedProduct.quantity} onChange={(e) => handleOnChange('quantity', e.target.value)} type="number" placeholder="Enter quantity" />
+                    </div>
+                    <div className="w-full  mb-5">
+                        <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="price">
+                            PRICE
+                        </label>
+                        <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:text-gray-600 focus:shadow-outline" value={selectedProduct.price} onChange={(e) => handleOnChange('price', e.target.value)} type="number" placeholder="Enter price" />
                     </div>
                     <div className="flex items-center justify-between">
                         <button className="block mt-5 bg-green-400 w-full hover:bg-green-500 text-white font-bold py-2 px-4 rounded focus:text-gray-600 focus:shadow-outline">

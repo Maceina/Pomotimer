@@ -11,6 +11,8 @@ const initialState = {
       weight: "450",
       color: "Blue",
       active: "True",
+      quantity: "5",
+      price: "600"
     },
     {
         id: 2,
@@ -20,6 +22,8 @@ const initialState = {
         weight: "2500",
         color: "Brown",
         active: "False",
+        quantity: "6",
+        price: "15"
       },
   ],
 };

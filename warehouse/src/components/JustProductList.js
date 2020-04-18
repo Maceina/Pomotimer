@@ -19,7 +19,8 @@ export const JustProductList = () => {
                             <p className="text-gray-900 leading-none"><span className="inline-block text-base font-semibold mt-1">WEIGHT:</span> {product.weight}</p>
                             <p className="text-gray-900 leading-none"><span className="inline-block text-base font-semibold mt-1">COLOR:</span> {product.color}</p>
                             <p className="text-gray-900 leading-none"><span className="inline-block text-base font-semibold mt-1">ACTIVE:</span> {product.active}</p>
-
+                            <p className="text-gray-900 leading-none"><span className="inline-block text-base font-semibold mt-1">QUANTITY:</span> {product.quantity}</p>
+                            <p className="text-gray-900 leading-none"><span className="inline-block text-base font-semibold mt-1">PRICE:</span> {product.price}</p>
                         </div>
                     </div>
                 ))}
