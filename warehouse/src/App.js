@@ -6,6 +6,7 @@ import { AddProduct } from './components/AddProduct';
 import { EditProduct } from './components/EditProduct';
 import { ProductList } from './components/ProductList';
 import { PreviewProduct } from './components/PreviewProduct'
+import { JustProductList } from './components/JustProductList'; 
  
 
 import { GlobalProvider } from './context/GlobalState';
@@ -15,7 +16,7 @@ function App() {
     <GlobalProvider>
       <Switch>
         <Route path="/" component={Home} exact />
-        <Route path="/products" component={ProductList} exact />
+        <Route path="/products" component={JustProductList} exact />
         <Route path="/products/create" component={AddProduct} exact />
         <Route path="/products/:id/edit" component={EditProduct} exact />
         <Route path="/products/:id" component={PreviewProduct} exact />
