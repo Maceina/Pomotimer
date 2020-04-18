@@ -19,6 +19,15 @@ export default (state, action) => {
                 }
                 return product;
             });
+            case 'PREVIEW_PRODUCT':
+            const viewedProduct = action.payload;
+
+            const viewedProducts = state.products.map(product => {
+                if (product.id === viewedProduct.id) {
+                    return viewedProduct;
+                }
+                return product;
+            });
 
             return {
                 ...state,

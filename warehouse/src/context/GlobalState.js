@@ -48,6 +48,12 @@ export const GlobalProvider = ({ children }) => {
       payload: products,
     });
   }
+  function previewProduct(products) {
+    dispatch({
+      type: "PREVIEW_PRODUCT",
+      payload: products,
+    });
+}
 
   return (
     <GlobalContext.Provider
@@ -56,6 +62,7 @@ export const GlobalProvider = ({ children }) => {
         removeProduct,
         addProduct,
         editProduct,
+        previewProduct,
       }}
     >
       {children}
