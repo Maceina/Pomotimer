@@ -1,0 +1,253 @@
+@import "../../../scss/variables.scss";
+@import "../../../scss/mixins.scss";
+
+$inner-circle-width: 300px;
+$outer-circle-width: 340px;
+
+.timer {
+  // For all buttons in timer
+  button {
+    margin: 0px 6px;
+    padding: 4px 12px;
+    border: none;
+    outline: none;
+    border-radius: 33px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+// Types Buttons - Pomodoro, SB, LB
+.typesButtonContainer {
+  display: flex;
+  justify-content: center;
+
+  button {
+    display: flex;
+    justify-content: center;
+
+    font-weight: 700;
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.5);
+    width: 100px;
+
+    transition: color 0.1s linear, background-color 0.1s linear;
+
+    .icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+    }
+    &:hover {
+      color: rgba(0, 0, 0, 0.9);
+    }
+  }
+  .pomodoroButton {
+    background-color: $color-pomodoro-50;
+    &:hover {
+      background-color: $color-pomodoro-70;
+    }
+    &.active {
+      color: rgba(0, 0, 0, 0.9);
+      background-color: $color-pomodoro-70;
+    }
+  }
+  .shortBreakButton {
+    background-color: $color-shortbreak-50;
+    &:hover {
+      background-color: $color-shortbreak-70;
+    }
+    &.active {
+      color: rgba(0, 0, 0, 0.9);
+      background-color: $color-shortbreak-70;
+    }
+  }
+  .longBreakButton {
+    background-color: $color-longbreak-50;
+    &:hover {
+      background-color: $color-longbreak-70;
+    }
+    &.active {
+      color: rgba(0, 0, 0, 0.9);
+      background-color: $color-longbreak-70;
+    }
+  }
+}
+
+// Control Timer Buttons - Reset, Cancel & Save, Start/Stop
+.controlsButtonContainer {
+  display: flex;
+  justify-content: center;
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 64px;
+    height: 64px;
+
+    background-color: rgba(226, 226, 226, 0.6);
+
+    .icon {
+      width: 24px;
+      height: 24px;
+      color: $color-button-icon-unhovered;
+    }
+    &:hover {
+      .icon {
+        color: $color-button-icon-hovered;
+      }
+    }
+  }
+  .startStopButton {
+    width: 176px;
+    background-color: $color-green;
+  }
+}
+
+// Timer
+.timerContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 32px;
+  margin-bottom: 32px;
+  width: $outer-circle-width;
+  height: $outer-circle-width;
+
+  h2 {
+    z-index: 300;
+    margin-top: 8px; //center in circle (p height = 19px)
+    font-weight: 500;
+    font-size: 72px;
+    color: white;
+  }
+  p {
+    z-index: 300;
+    font-size: 16px;
+    color: white;
+  }
+  .innerCircle {
+    position: absolute;
+    z-index: 200;
+
+    width: $inner-circle-width;
+    height: $inner-circle-width;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    mix-blend-mode: normal;
+
+    transition: background-color 0.5s ease-in-out;
+
+    &.pomodoro {
+      background-color: $color-pomodoro;
+    }
+    &.shortBreak {
+      background-color: $color-shortbreak;
+    }
+    &.longBreak {
+      background-color: $color-longbreak;
+    }
+  }
+  .outerCircle {
+    position: absolute;
+    z-index: 0;
+
+    width: $outer-circle-width;
+    height: $outer-circle-width;
+
+    svg {
+      transform: scaleX(-1);
+      g {
+        fill: none;
+        stroke: none;
+      }
+      circle {
+        stroke-width: 7px;
+        transition: stroke 0.5s ease-in-out;
+      }
+      path {
+        /* Just as thick as the original ring */
+        stroke-width: 7px;
+
+        /* Makes sure the animation starts at the top of the circle */
+        transform: rotate(90deg);
+        transform-origin: center;
+
+        /* 1s aligns with the speed of the countdown */
+        transition: all 1s linear;
+        /* Does not perfectly align with timer (i.e. timer doesn't make a full revolution when reaches 0)
+          Due to the setTimeout 250ms (?) */
+      }
+    }
+    &.pomodoro {
+      circle {
+        stroke: $color-pomodoro-20;
+      }
+      path {
+        stroke: $color-pomodoro-50;
+      }
+    }
+    &.shortBreak {
+      circle {
+        stroke: $color-shortbreak-20;
+      }
+      path {
+        stroke: $color-shortbreak-50;
+      }
+    }
+    &.longBreak {
+      circle {
+        stroke: $color-longbreak-20;
+      }
+      path {
+        stroke: $color-longbreak-50;
+      }
+    }
+  }
+}
+
+// Description
+.descriptionContainer {
+  margin-top: 32px;
+
+  input {
+    padding: 4px 12px;
+    width: 100%;
+    height: 32px;
+    border: none;
+    outline: none;
+    border: $border-10;
+    border-radius: 16px;
+    font-size: 18px;
+
+    &:hover {
+      border: $border-30;
+    }
+  }
+}
+
+@include desktop-width-height {
+  .timerContainer {
+    width: calc(#{$outer-circle-width} + 5vh);
+    height: calc(#{$outer-circle-width} + 5vh);
+
+    .innerCircle {
+      width: calc(#{$inner-circle-width} + 5vh);
+      height: calc(#{$inner-circle-width} + 5vh);
+    }
+    .outerCircle {
+      width: calc(#{$outer-circle-width} + 5vh);
+      height: calc(#{$outer-circle-width} + 5vh);
+    }
+  }
+}

@@ -1,0 +1,40 @@
+// DOES NOT WORK THE SAME IF "nav" INSTEAD OF ".class"???
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 12px 0px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 0px 16px;
+
+  h1 {
+    font-family: "Roboto Mono";
+    font-weight: 600;
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.8);
+    margin-left: 10px;
+
+    .logo {
+      width: 24px;
+      height: 24px;
+      vertical-align: bottom;
+    }
+  }
+  ul li {
+    display: inline-block;
+    margin: 0 10px;
+
+    .icon {
+      vertical-align: bottom;
+      width: 24px;
+      height: 24px;
+      color: rgba(0, 0, 0, 0.65);
+      border-radius: 50%;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
