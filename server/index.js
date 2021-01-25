@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
-//12
+//1
 require("dotenv").config();
 
 const app = express();
