@@ -8,7 +8,7 @@ import { ProductList } from './components/ProductList';
 import { PreviewProduct } from './components/PreviewProduct'
 import { JustProductList } from './components/JustProductList'; 
  
-
+// warehouse
 import { GlobalProvider } from './context/GlobalState';
 
 function App() {
