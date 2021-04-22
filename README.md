@@ -2,7 +2,7 @@
 
 Track your work using a fully customisable pomodoro-based timer system. Create an account and sync your work across multiple devices. Pomotimer uses the MERN stack with Google OAuth to register and save user data.
 
-# Build with:
+# Built with:
 1. React.js
 2. Node.js
 3. Express.js
