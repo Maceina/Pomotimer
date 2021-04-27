@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const entryAPI = {
-  // Entry AJAX requests
+  // Entry AJAX requestss
   getAll: () => axios.get("/api/entries"),
   create: (entryData) => axios.post("/api/entries", entryData),
 
