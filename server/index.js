@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const morgan = require("morgan"); //HTTP request logger middleware
+const morgan = require("morgan"); //HTTP request logger middlewar
 const mongoose = require("mongoose");
 const passport = require("passport");
 const session = require("express-session");
